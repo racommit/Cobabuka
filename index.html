@@ -126,10 +126,10 @@
     <h1>🎉 Selamat Ulang Tahun Sayang! 🎂</h1>
     <div id="message">💖 Coba klik layar ini! 💖</div>
   </div>
-  <div id="closing">💌 I Love You 💌<br><img src="foto-agis.jpg" alt="Foto Agis"></div>
+  <div id="closing">💌 I Love You, Agis 💌<br><img src="foto-agis.jpg" alt="Foto Agis"></div>
 
- 
-
+  <!-- Musik ulang tahun -->
+  <audio id="music" src="happy-birthday.mp3" autoplay loop></audio>
 
   <script>
     function randomColor() {
@@ -157,8 +157,8 @@
       document.body.appendChild(confetti);
     }
 
-    // Foto Polaroid mengambang
-    const fotos = ["1.jpg", "2.jpg", "3.jpg"];
+    // Foto Polaroid mengambang (satu folder dengan index.html)
+    const fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg"];
     for (let i = 0; i < fotos.length; i++) {
       const polaroid = document.createElement("div");
       polaroid.className = "polaroid";
