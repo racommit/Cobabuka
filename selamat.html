@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Agis!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: scale(0.5);
+      animation: fadeInScale 2s forwards 1s;
+      text-align: center;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 1s;
+      text-align: center;
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--color));
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background: var(--color);
+      top: -20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;">
+    <h1>🎉 Selamat Ulang Tahun Sayang! 🎂</h1>
+    <div id="message">💖 Coba klik layar ini! 💖</div>
+  </div>
+
+  <script>
+    function randomColor() {
+      const colors = ["#ff6b6b", "#feca57", "#48dbfb", "#1dd1a1", "#f368e0"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Balon
+    for (let i = 0; i < 15; i++) {
+      const balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.animationDuration = 5 + Math.random() * 5 + "s";
+      balloon.style.setProperty("--color", randomColor());
+      document.body.appendChild(balloon);
+    }
+
+    // Konfeti
+    for (let i = 0; i < 80; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = 3 + Math.random() * 3 + "s";
+      confetti.style.setProperty("--color", randomColor());
+      document.body.appendChild(confetti);
+    }
+
+    // Pesan spesial
+    const pesan = [
+      "Bub, semoga hari ulang tahun ini penuh rasa syukur dan kebahagiaan ya! 🥳",
+      "Kamu udah jadi yang terbaik buat sejauh ini💕",
+      "Semoga semua impian kamumu jadi kenyataan ✨",
+      "Aku berterimakasih banyak bisa ketemu dan kenal sampe sejauh ini💖",
+      "Selamat ulang tahun! 🎂💐"
+    ];
+
+    let index = 0;
+    const messageDiv = document.getElementById("message");
+    messageDiv.style.opacity = 1;
+
+    document.body.addEventListener("click", () => {
+      messageDiv.textContent = pesan[index];
+      index = (index + 1) % pesan.length;
+    });
+  </script>
+</body>
+</html>
